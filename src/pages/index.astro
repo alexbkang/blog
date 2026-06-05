@@ -39,29 +39,29 @@ const socialLinks = [
       </h1>
     </div>
 
-    <div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
+    <div class="flex flex-wrap items-center gap-y-2 text-sm">
       <Link
         href="/projects"
-        class="bg-primary text-primary-foreground hover:bg-primary/90 group inline-flex h-9 items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:ring-[3px]"
+        class="bg-primary/70 text-primary-foreground hover:bg-primary group inline-flex h-9 items-center justify-center gap-2 px-4 py-2 text-sm font-medium whitespace-nowrap"
       >
-        Projects <span
-          class="inline-block transition-transform group-hover:translate-x-1"
-          >&rarr;</span
-        >
+        Projects
       </Link>
-      {
-        socialLinks.map((link) => (
-          <Link
-            href={link.href}
-            aria-label={link.label}
-            title={link.label}
-            class="border-input bg-background hover:bg-muted hover:text-foreground inline-flex size-9 items-center justify-center rounded-md border"
-            external
-          >
-            <Icon name={link.icon} class="size-4" />
-          </Link>
-        ))
-      }
+      <span class="bg-border mr-2 ml-5 h-5 w-px" aria-hidden="true"></span>
+      <div class="flex items-center gap-1">
+        {
+          socialLinks.map((link) => (
+            <Link
+              href={link.href}
+              aria-label={link.label}
+              title={link.label}
+              class="text-muted-foreground hover:text-primary inline-flex size-9 items-center justify-center transition-colors"
+              external
+            >
+              <Icon name={link.icon} class="size-5" />
+            </Link>
+          ))
+        }
+      </div>
     </div>
   </section>
 
@@ -79,7 +79,7 @@ const socialLinks = [
     <div class="flex justify-end">
       <Link
         href="/blog"
-        class="text-muted-foreground hover:text-foreground group text-sm"
+        class="text-muted-foreground hover:text-primary group text-sm"
       >
         All posts <span
           class="ml-1.5 transition-transform group-hover:translate-x-1"
