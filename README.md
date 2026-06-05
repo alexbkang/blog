@@ -24,31 +24,31 @@ astro-erudite is an opinionated, unstyled static blogging template built with [A
 
 Below are some fantastic examples of websites based on this template. If you wish to add your site to this list, open a [pull request](https://github.com/jktrn/astro-erudite/pulls)!
 
-| Site | Author | Tags | Source |
-|-|-|-|-|
-| [enscribe.dev](https://enscribe.dev) | [@jktrn](https://github.com/jktrn) | portfolio, interactive | [→](https://github.com/jktrn/enscribe.dev) |
-| [emile.sh](https://emile.sh) | [@echoghi](https://github.com/echoghi) | minimal, flexoki | [→](https://github.com/echoghi/v5) |
-| [decentparadox.me](https://decentparadox.me) | [@decentparadox](https://github.com/decentparadox) | portfolio, sci-fi | [→](https://github.com/decentparadox/decentparadox.me) |
-| [flocto.github.io](https://flocto.github.io/) | [@flocto](https://github.com/flocto) | blog | [→](https://github.com/flocto/flocto.github.io) |
-| [dumbprism.me](https://www.dumbprism.me/) | [@dumbprism](https://github.com/dumbprism) | portfolio, bento | [→](https://github.com/dumbprism/dumbprism-portfolio) |
-| [hyuki.dev](https://hyuki.dev/) | [@snow0406](https://github.com/snow0406) | minimal, blog | [→](https://github.com/Snow0406/hyuki.dev) |
-| [ldd.cc](https://ldd.cc/) | [@xJoyLu](https://github.com/xjoylu) | blog | [→](https://ldd.cc/) |
-| [rezarezvan.com](https://rezarezvan.com/) | [@rezaarezvan](https://github.com/rezaarezvan) | academic, blog | [→](https://rezarezvan.com/) |
-| [blog.z0x.ca](https://blog.z0x.ca/) | [@z0x](https://z0x.ca) | minimal | [→](https://git.z0x.ca/z0x/blog.z0x.ca/) |
-| [angelaytchan.net](https://angelaytchan.net/) | [@wispyplant](https://github.com/wispyplant) | portfolio, art | [→](https://github.com/wispyplant/wispyplant.github.io) |
-| [kaezr.xyz](https://kaezr.xyz/) | [@kaezrr](https://github.com/kaezrr) | minimal, portfolio | [→](https://github.com/kaezrr/webfolio) |
-| [worldwidewong](https://worldwidewong.vercel.app) | [@brendanwong-web](https://github.com/brendanwong-web) | portfolio, gallery | [→](https://github.com/brendanwong-web/worldwidewong) |
-| [bgajjala.dev](https://bgajjala.dev) | [@bgajjala8](https://github.com/bgajjala8) | minimal, blog | [→](https://github.com/bgajjala8/bgajjala.dev) |
-| [ankitz007.vercel.app](https://ankitz007.vercel.app) | [@ankitz007](https://github.com/ankitz007) | blog | [→](https://github.com/ankitz007/webfolio) |
-| [sadman.ca](https://sadman.ca) | [@sadmanca](https://github.com/sadmanca) | blog, media | [→](https://github.com/sadmanca/blogv3) |
-| [marcel-to.vercel.app](https://marcel-to.vercel.app) | [@Marcel-TO](https://github.com/Marcel-TO) | portfolio, docs | [→](https://github.com/Marcel-TO/marcel-to-website) |
-| [merox.dev](https://merox.dev) | [@meroxdotdev](https://github.com/meroxdotdev) | blog, devops, homelab | [→](https://github.com/meroxdotdev/merox) |
-| [Off by One](https://justoffbyone.com) | [@cduruk](https://github.com/cduruk) | engineering, blog | [→](https://github.com/cduruk/offbyone) |
-| [holywater.dev](https://holywater.dev) | [@holywater2372](https://github.com/holywater2372) | cybersecurity, blog | [→](https://github.com/holywater2372/holywater.dev) |
-| [theinfinull.com](https://theinfinull.com) | [@theinfinull](https://github.com/theinfinull) | dev, portfolio, blog | [→](https://github.com/theinfinull/portfolio) |
-| [chai-pin-zheng.xyz](https://www.chai-pin-zheng.xyz/) | [@Ducksss](https://github.com/Ducksss) | portfolio, interactive, blog, ascii | [→](https://github.com/Ducksss/ascii-astro-erudite) |
-| [nightxade.dev](https://nightxade.dev) | [@nightxade](https://github.com/nightxade) | blog, portfolio | [→](https://github.com/nightxade/nightsite)
-| [xingpingcn.top](https://xingpingcn.top) | [@xingpingcn](https://github.com/xingpingcn) | blog, chinese | [→](https://github.com/xingpingcn/newblog) |
+| Site                                                  | Author                                                 | Tags                                | Source                                                  |
+| ----------------------------------------------------- | ------------------------------------------------------ | ----------------------------------- | ------------------------------------------------------- |
+| [enscribe.dev](https://enscribe.dev)                  | [@jktrn](https://github.com/jktrn)                     | portfolio, interactive              | [→](https://github.com/jktrn/enscribe.dev)              |
+| [emile.sh](https://emile.sh)                          | [@echoghi](https://github.com/echoghi)                 | minimal, flexoki                    | [→](https://github.com/echoghi/v5)                      |
+| [decentparadox.me](https://decentparadox.me)          | [@decentparadox](https://github.com/decentparadox)     | portfolio, sci-fi                   | [→](https://github.com/decentparadox/decentparadox.me)  |
+| [flocto.github.io](https://flocto.github.io/)         | [@flocto](https://github.com/flocto)                   | blog                                | [→](https://github.com/flocto/flocto.github.io)         |
+| [dumbprism.me](https://www.dumbprism.me/)             | [@dumbprism](https://github.com/dumbprism)             | portfolio, bento                    | [→](https://github.com/dumbprism/dumbprism-portfolio)   |
+| [hyuki.dev](https://hyuki.dev/)                       | [@snow0406](https://github.com/snow0406)               | minimal, blog                       | [→](https://github.com/Snow0406/hyuki.dev)              |
+| [ldd.cc](https://ldd.cc/)                             | [@xJoyLu](https://github.com/xjoylu)                   | blog                                | [→](https://ldd.cc/)                                    |
+| [rezarezvan.com](https://rezarezvan.com/)             | [@rezaarezvan](https://github.com/rezaarezvan)         | academic, blog                      | [→](https://rezarezvan.com/)                            |
+| [blog.z0x.ca](https://blog.z0x.ca/)                   | [@z0x](https://z0x.ca)                                 | minimal                             | [→](https://git.z0x.ca/z0x/blog.z0x.ca/)                |
+| [angelaytchan.net](https://angelaytchan.net/)         | [@wispyplant](https://github.com/wispyplant)           | portfolio, art                      | [→](https://github.com/wispyplant/wispyplant.github.io) |
+| [kaezr.xyz](https://kaezr.xyz/)                       | [@kaezrr](https://github.com/kaezrr)                   | minimal, portfolio                  | [→](https://github.com/kaezrr/webfolio)                 |
+| [worldwidewong](https://worldwidewong.vercel.app)     | [@brendanwong-web](https://github.com/brendanwong-web) | portfolio, gallery                  | [→](https://github.com/brendanwong-web/worldwidewong)   |
+| [bgajjala.dev](https://bgajjala.dev)                  | [@bgajjala8](https://github.com/bgajjala8)             | minimal, blog                       | [→](https://github.com/bgajjala8/bgajjala.dev)          |
+| [ankitz007.vercel.app](https://ankitz007.vercel.app)  | [@ankitz007](https://github.com/ankitz007)             | blog                                | [→](https://github.com/ankitz007/webfolio)              |
+| [sadman.ca](https://sadman.ca)                        | [@sadmanca](https://github.com/sadmanca)               | blog, media                         | [→](https://github.com/sadmanca/blogv3)                 |
+| [marcel-to.vercel.app](https://marcel-to.vercel.app)  | [@Marcel-TO](https://github.com/Marcel-TO)             | portfolio, docs                     | [→](https://github.com/Marcel-TO/marcel-to-website)     |
+| [merox.dev](https://merox.dev)                        | [@meroxdotdev](https://github.com/meroxdotdev)         | blog, devops, homelab               | [→](https://github.com/meroxdotdev/merox)               |
+| [Off by One](https://justoffbyone.com)                | [@cduruk](https://github.com/cduruk)                   | engineering, blog                   | [→](https://github.com/cduruk/offbyone)                 |
+| [holywater.dev](https://holywater.dev)                | [@holywater2372](https://github.com/holywater2372)     | cybersecurity, blog                 | [→](https://github.com/holywater2372/holywater.dev)     |
+| [theinfinull.com](https://theinfinull.com)            | [@theinfinull](https://github.com/theinfinull)         | dev, portfolio, blog                | [→](https://github.com/theinfinull/portfolio)           |
+| [chai-pin-zheng.xyz](https://www.chai-pin-zheng.xyz/) | [@Ducksss](https://github.com/Ducksss)                 | portfolio, interactive, blog, ascii | [→](https://github.com/Ducksss/ascii-astro-erudite)     |
+| [nightxade.dev](https://nightxade.dev)                | [@nightxade](https://github.com/nightxade)             | blog, portfolio                     | [→](https://github.com/nightxade/nightsite)             |
+| [xingpingcn.top](https://xingpingcn.top)              | [@xingpingcn](https://github.com/xingpingcn)           | blog, chinese                       | [→](https://github.com/xingpingcn/newblog)              |
 
 ## Features
 
@@ -60,7 +60,6 @@ Below are some fantastic examples of websites based on this template. If you wis
 - SEO optimization with granular metadata and [Open Graph](https://ogp.me/) tag control for each post.
 - [RSS](https://en.wikipedia.org/wiki/RSS) feed and sitemap generation.
 - Subpost support for breaking long content into digestible parts and organizing related series.
-- Author profiles with a dedicated authors page and multi-author post support.
 - Project tags with a dedicated tags page for post categorization and discovery.
 - Custom Callout component variants for enhanced technical writing.
 
@@ -103,9 +102,9 @@ This is a list of the various technologies used to build this template:
 
 5. Open your browser and visit `http://localhost:1234` to get started. The following commands are also available:
 
-   | Command            | Description                                                     |
-   | ------------------ | --------------------------------------------------------------- |
-   | `pnpm start`    | Alias for `pnpm dev`                                         |
+   | Command         | Description                                                     |
+   | --------------- | --------------------------------------------------------------- |
+   | `pnpm start`    | Alias for `pnpm dev`                                            |
    | `pnpm build`    | Run type checking and build the project                         |
    | `pnpm preview`  | Previews the built project                                      |
    | `pnpm astro`    | Run Astro CLI commands                                          |
@@ -194,58 +193,21 @@ description: 'A brief description of your post!'
 date: 2024-01-01
 tags: ['tag1', 'tag2']
 image: './image.png'
-authors: ['author1', 'author2']
 draft: false
 ---
 ```
 
 The blog post schema is defined as follows:
 
-| Field         | Type (Zod)      | Requirements                                                                                                                                                                    | Required |
-| ------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `title`       | `string`        | Should be ≤60 characters.                                                                                                                                                       | Yes      |
-| `description` | `string`        | Should be ≤155 characters.                                                                                                                                                      | Yes      |
-| `date`        | `coerce.date()` | Must be in `YYYY-MM-DD` format.                                                                                                                                                 | Yes      |
-| `order`       | `number`        | Sort order for subposts with the same `date`. Defaults to `0` if not provided.                                                                                                  | Optional |
-| `image`       | `image()`       | Should be exactly 1200px &times; 630px.                                                                                                                                         | Optional |
-| `tags`        | `string[]`      | Preferably use kebab-case for these.                                                                                                                                            | Optional |
-| `authors`     | `string[]`      | If the author has a profile, use the id associated with their Markdown file in `src/content/authors/` (e.g. if their file is named `jane-doe.md`, use `jane-doe` in the array). | Optional |
-| `draft`       | `boolean`       | Defaults to `false` if not provided.                                                                                                                                            | Optional |
-
-### Authors
-
-Add author information in `src/content/authors/` as Markdown files. A file named `[author-name].md` can be associated with a blog post if `"author-name"` (the id) is added to the `authors` field:
-
-```yml
----
-name: 'enscribe'
-pronouns: 'he/him'
-avatar: 'https://gravatar.com/avatar/9bfdc4ec972793cf05cb91efce5f4aaaec2a0da1bf4ec34dad0913f1d845faf6.webp?size=256'
-bio: 'd(-_-)b'
-website: 'https://enscribe.dev'
-twitter: 'https://twitter.com/enscry'
-github: 'https://github.com/jktrn'
-mail: 'jason@enscribe.dev'
----
-```
-
-The author schema is defined as follows:
-
-| Field      | Type (Zod)                                 | Requirements                                                                                                                                                             | Required |
-| ---------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
-| `name`     | `string`                                   | n/a                                                                                                                                                                      | Yes      |
-| `pronouns` | `string`                                   | n/a                                                                                                                                                                      | Optional |
-| `avatar`   | `string.url()` or `string.startsWith('/')` | Should be either a valid URL or a path starting with `/`. Preferably use [Gravatar](https://en.gravatar.com/site/implement/images/) with the `?size=256` size parameter. | Yes      |
-| `bio`      | `string`                                   | n/a                                                                                                                                                                      | Optional |
-| `mail`     | `string.email()`                           | Must be a valid email address.                                                                                                                                           | Optional |
-| `website`  | `string.url()`                             | Must be a valid URL.                                                                                                                                                     | Optional |
-| `twitter`  | `string.url()`                             | Must be a valid URL.                                                                                                                                                     | Optional |
-| `github`   | `string.url()`                             | Must be a valid URL.                                                                                                                                                     | Optional |
-| `linkedin` | `string.url()`                             | Must be a valid URL.                                                                                                                                                     | Optional |
-| `discord`  | `string.url()`                             | Must be a valid URL.                                                                                                                                                     | Optional |
-
-> [!TIP]
-> You can add as many social media links as you want, as long as you adjust the schema! Make sure you also support the new field in the `src/components/SocialIcons.astro` component.
+| Field         | Type (Zod)      | Requirements                                                                   | Required |
+| ------------- | --------------- | ------------------------------------------------------------------------------ | -------- |
+| `title`       | `string`        | Should be ≤60 characters.                                                      | Yes      |
+| `description` | `string`        | Should be ≤155 characters.                                                     | Yes      |
+| `date`        | `coerce.date()` | Must be in `YYYY-MM-DD` format.                                                | Yes      |
+| `order`       | `number`        | Sort order for subposts with the same `date`. Defaults to `0` if not provided. | Optional |
+| `image`       | `image()`       | Should be exactly 1200px &times; 630px.                                        | Optional |
+| `tags`        | `string[]`      | Preferably use kebab-case for these.                                           | Optional |
+| `draft`       | `boolean`       | Defaults to `false` if not provided.                                           | Optional |
 
 ### Projects
 

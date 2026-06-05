@@ -3,7 +3,6 @@ title: 'Implementing file-based subpost routing'
 description: 'How file-based hierarchical content organization works under the hood'
 date: 2025-05-21
 tags: ['v1.6.0']
-authors: ['enscribe']
 order: 2
 ---
 
@@ -71,7 +70,7 @@ export async function getAdjacentPosts(currentId: string): Promise<{
       .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf())
 
     const currentIndex = subposts.findIndex((post) => post.id === currentId)
-    
+
     return {
       newer: currentIndex < subposts.length - 1 
         ? subposts[currentIndex + 1] 
@@ -133,7 +132,7 @@ As a TL;DR, subposts should only navigate among siblings and should be able to g
 
     We append `-text` to `book-open` or `file` (for parent posts and subposts, respectively) to indicate the active post by differentiating it from inactive icons which would lack the text within the icon.
 
-- The main blog listing (alongside other listings, e.g. filtering by tags, filtering by author) should exclude subposts to avoid cluttering the feed:
+- The main blog listing (alongside other listings, e.g. filtering by tags) should exclude subposts to avoid cluttering the feed:
 
     ```typescript title="src/lib/data-utils.ts" startLineNumber={7}
     export async function getAllPosts(): Promise<CollectionEntry<'blog'>[]> {
