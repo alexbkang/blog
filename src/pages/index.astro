@@ -2,7 +2,6 @@
 import BlogItem from '@/components/blog-item.astro'
 import Link from '@/components/link.astro'
 import PageHead from '@/components/page-head.astro'
-import { buttonVariants } from '@/components/ui/button'
 import { SITE } from '@/consts'
 import Layout from '@/layouts/layout.astro'
 import { getRecentPosts } from '@/lib/data-utils'
@@ -70,10 +69,10 @@ const blog = await getRecentPosts(SITE.featuredPostCount)
         ))
       }
     </ul>
-    <div class="flex justify-center">
+    <div class="flex justify-end">
       <Link
         href="/blog"
-        class={buttonVariants({ variant: 'ghost' }) + ' group'}
+        class="text-muted-foreground hover:text-foreground group text-sm"
       >
         All posts <span
           class="ml-1.5 transition-transform group-hover:translate-x-1"
