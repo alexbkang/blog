@@ -1,6 +1,5 @@
 ---
 import Link from '@/components/link.astro'
-import { Badge } from '@/components/ui/badge'
 import { Image } from 'astro:assets'
 import type { CollectionEntry } from 'astro:content'
 
@@ -40,15 +39,6 @@ const title = year ? `${project.data.name} — ${year}` : project.data.name
       <span class="text-[15px] leading-[1.35] font-medium">{title}</span>
       <span class="text-muted-foreground text-[13px] leading-[1.65]">
         {project.data.description}
-      </span>
-      <span class="mt-2 flex flex-wrap gap-2">
-        {
-          project.data.tags.map((tag) => (
-            <Badge variant="muted" className="text-[11px]">
-              {tag}
-            </Badge>
-          ))
-        }
       </span>
     </span>
   </Link>

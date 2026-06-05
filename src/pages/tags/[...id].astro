@@ -2,8 +2,9 @@
 import BlogItem from '@/components/blog-item.astro'
 import Breadcrumbs from '@/components/breadcrumbs.astro'
 import PageHead from '@/components/page-head.astro'
+import ProjectCard from '@/components/project-card.astro'
 import Layout from '@/layouts/layout.astro'
-import { getAllTags, getPostsByTag } from '@/lib/data-utils'
+import { getAllTags, getPostsByTag, getProjectsByTag } from '@/lib/data-utils'
 
 export async function getStaticPaths() {
   const tagMap = await getAllTags()
@@ -12,25 +13,27 @@ export async function getStaticPaths() {
   return Promise.all(
     uniqueTags.map(async (tag) => {
       const posts = await getPostsByTag(tag)
+      const projects = await getProjectsByTag(tag)
       return {
         params: { id: tag },
         props: {
           tag,
           posts,
+          projects,
         },
       }
     }),
   )
 }
 
-const { tag, posts } = Astro.props
+const { tag, posts, projects } = Astro.props
 ---
 
 <Layout class="max-w-3xl">
   <PageHead
     slot="head"
-    title={`Posts tagged with "${tag}"`}
-    description={`A collection of posts tagged with ${tag}.`}
+    title={`Content tagged with "${tag}"`}
+    description={`A collection of posts and projects tagged with ${tag}.`}
     noindex
   />
   <Breadcrumbs
@@ -40,13 +43,33 @@ const { tag, posts } = Astro.props
     ]}
   />
 
-  <ul class="flex flex-col">
+  <div class="flex flex-col gap-y-6">
     {
-      posts.map((post) => (
-        <li>
-          <BlogItem entry={post} />
-        </li>
-      ))
+      posts.length > 0 && (
+        <section class="flex flex-col gap-y-2">
+          <h2 class="font-medium">Posts</h2>
+          <ul class="flex flex-col">
+            {posts.map((post) => (
+              <li>
+                <BlogItem entry={post} />
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
     }
-  </ul>
+
+    {
+      projects.length > 0 && (
+        <section class="flex flex-col gap-y-2">
+          <h2 class="font-medium">Projects</h2>
+          <ul class="flex flex-col gap-4">
+            {projects.map((project) => (
+              <ProjectCard project={project} />
+            ))}
+          </ul>
+        </section>
+      )
+    }
+  </div>
 </Layout>

@@ -28,12 +28,22 @@ export async function getAllProjects(): Promise<CollectionEntry<'projects'>[]> {
 
 export async function getAllTags(): Promise<Map<string, number>> {
   const posts = await getAllPosts()
-  return posts.reduce((acc, post) => {
+  const projects = await getAllProjects()
+  const tagCounts = new Map<string, number>()
+
+  posts.forEach((post) => {
     post.data.tags?.forEach((tag) => {
-      acc.set(tag, (acc.get(tag) || 0) + 1)
+      tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1)
     })
-    return acc
-  }, new Map<string, number>())
+  })
+
+  projects.forEach((project) => {
+    project.data.tags.forEach((tag) => {
+      tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1)
+    })
+  })
+
+  return tagCounts
 }
 
 export async function getAdjacentPosts(currentId: string): Promise<{
@@ -100,6 +110,13 @@ export async function getPostsByTag(
 ): Promise<CollectionEntry<'blog'>[]> {
   const posts = await getAllPosts()
   return posts.filter((post) => post.data.tags?.includes(tag))
+}
+
+export async function getProjectsByTag(
+  tag: string,
+): Promise<CollectionEntry<'projects'>[]> {
+  const projects = await getAllProjects()
+  return projects.filter((project) => project.data.tags.includes(tag))
 }
 
 export async function getRecentPosts(
