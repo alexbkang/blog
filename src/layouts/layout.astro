@@ -37,5 +37,36 @@ const { class: className } = Astro.props
       <slot />
     </main>
     <Footer />
+    <script>
+      document.addEventListener('click', (event) => {
+        const target = event.target
+        if (!(target instanceof Element)) return
+
+        const button = target.closest('button[data-filter]')
+        if (!button) return
+
+        const filterRoot = button.closest('[data-tag-filter]')
+        const filterScope = button.closest('[data-filter-scope]') ?? document
+        const itemsRoot = filterScope.querySelector('[data-filter-items]')
+        if (!filterRoot || !itemsRoot) return
+
+        const filter = button.getAttribute('data-filter')
+
+        filterRoot.querySelectorAll('button[data-filter]').forEach((button) => {
+          button.setAttribute(
+            'data-active',
+            String(button.getAttribute('data-filter') === filter),
+          )
+        })
+
+        itemsRoot.querySelectorAll('[data-tags]').forEach((item) => {
+          const tags = item.getAttribute('data-tags')?.split('|') ?? []
+          item.toggleAttribute(
+            'hidden',
+            filter !== 'all' && !tags.includes(filter ?? ''),
+          )
+        })
+      })
+    </script>
   </body>
 </html>
