@@ -38,12 +38,13 @@ One of the more intricate parts of this update was rethinking navigation. The or
     advanced-patterns.mdx
   ```
 
-Navigation depends on context:
-
-- From `getting-started.mdx`: next goes to `react-tutorial/index.mdx`
-- From `react-tutorial/components.mdx`: next goes to `state.mdx`, previous to `index.mdx`
-- From `react-tutorial/state.mdx`: previous goes to `components.mdx`, parent goes to `index.mdx`
-  </Callout>
+  <p>Navigation depends on context:</p>
+  <ul>
+    <li>From <code>getting-started.mdx</code>: next goes to <code>react-tutorial/index.mdx</code></li>
+    <li>From <code>react-tutorial/components.mdx</code>: next goes to <code>state.mdx</code>, previous to <code>index.mdx</code></li>
+    <li>From <code>react-tutorial/state.mdx</code>: previous goes to <code>components.mdx</code>, parent goes to <code>index.mdx</code></li>
+  </ul>
+</Callout>
 
 Here's how we handle this complexity:
 
