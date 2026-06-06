@@ -1,20 +1,7 @@
 import { getCollection, render, type CollectionEntry } from 'astro:content'
 import { readingTime, calculateWordCountFromHtml } from '@/lib/utils'
 
-function isSubpost(postId: string): boolean {
-  return postId.includes('/')
-}
-
 export async function getAllPosts(): Promise<CollectionEntry<'blog'>[]> {
-  const posts = await getCollection('blog')
-  return posts
-    .filter((post) => !post.data.draft && !isSubpost(post.id))
-    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-}
-
-export async function getAllPostsAndSubposts(): Promise<
-  CollectionEntry<'blog'>[]
-> {
   const posts = await getCollection('blog')
   return posts
     .filter((post) => !post.data.draft)
@@ -86,7 +73,7 @@ export async function getSortedTags(): Promise<
 async function getPostById(
   postId: string,
 ): Promise<CollectionEntry<'blog'> | null> {
-  const allPosts = await getAllPostsAndSubposts()
+  const allPosts = await getAllPosts()
   return allPosts.find((post) => post.id === postId) || null
 }
 

@@ -59,7 +59,6 @@ Below are some fantastic examples of websites based on this template. If you wis
 - Astro [View Transitions](https://docs.astro.build/en/guides/view-transitions/) in <abbr title="Single Page Application">SPA</abbr> mode for smooth route animations.
 - SEO optimization with granular metadata and [Open Graph](https://ogp.me/) tag control for each post.
 - [RSS](https://en.wikipedia.org/wiki/RSS) feed and sitemap generation.
-- Subpost support for breaking long content into digestible parts and organizing related series.
 - Project tags with a dedicated tags page for post categorization and discovery.
 - Custom Callout component variants for enhanced technical writing.
 
@@ -204,7 +203,6 @@ The blog post schema is defined as follows:
 | `title`       | `string`        | Should be ≤60 characters.                                                      | Yes      |
 | `description` | `string`        | Should be ≤155 characters.                                                     | Yes      |
 | `date`        | `coerce.date()` | Must be in `YYYY-MM-DD` format.                                                | Yes      |
-| `order`       | `number`        | Sort order for subposts with the same `date`. Defaults to `0` if not provided. | Optional |
 | `image`       | `image()`       | Should be exactly 1200px &times; 630px.                                        | Optional |
 | `tags`        | `string[]`      | Preferably use kebab-case for these.                                           | Optional |
 | `draft`       | `boolean`       | Defaults to `false` if not provided.                                           | Optional |
