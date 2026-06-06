@@ -6,6 +6,7 @@ import PaginationComponent from '@/components/ui/pagination'
 import { SITE } from '@/consts'
 import Layout from '@/layouts/layout.astro'
 import { getAllPosts } from '@/lib/data-utils'
+import { Icon } from 'astro-icon/components'
 import type { PaginateFunction } from 'astro'
 
 export async function getStaticPaths({
@@ -36,7 +37,7 @@ const tags = Array.from(
     <div class="mb-4 flex flex-wrap gap-2" data-tag-filter>
       <button
         type="button"
-        class="text-muted-foreground hover:border-primary hover:text-primary data-[active=true]:border-primary data-[active=true]:text-primary rounded-md border px-2 py-1 text-xs transition-colors"
+        class="text-muted-foreground hover:border-primary hover:text-primary data-[active=true]:border-primary data-[active=true]:text-primary inline-flex items-center gap-1 rounded-md border bg-transparent px-2 py-0.5 text-xs font-medium transition-colors"
         data-filter="all"
         data-active="true"
       >
@@ -46,10 +47,11 @@ const tags = Array.from(
         tags.map((tag) => (
           <button
             type="button"
-            class="text-muted-foreground hover:border-primary hover:text-primary data-[active=true]:border-primary data-[active=true]:text-primary rounded-md border px-2 py-1 text-xs transition-colors"
+            class="text-muted-foreground hover:border-primary hover:text-primary data-[active=true]:border-primary data-[active=true]:text-primary inline-flex items-center gap-1 rounded-md border bg-transparent px-2 py-0.5 text-xs font-medium transition-colors"
             data-filter={tag}
             data-active="false"
           >
+            <Icon name="lucide:hash" class="size-3" />
             {tag}
           </button>
         ))
