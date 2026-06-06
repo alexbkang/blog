@@ -2,6 +2,7 @@
 import Breadcrumbs from '@/components/breadcrumbs.astro'
 import Link from '@/components/link.astro'
 import PageHead from '@/components/page-head.astro'
+import { SOCIAL_LINKS } from '@/consts'
 import Layout from '@/layouts/layout.astro'
 import { Icon } from 'astro-icon/components'
 ---
@@ -13,39 +14,53 @@ import { Icon } from 'astro-icon/components'
   <section>
     <div class="min-w-full">
       <div class="mb-6">
-        <p class="mb-4">Software Engineer with experience in integration development and cloud solutions using Java, Spring, AWS, and Azure, with DevOps experience in Terraform and CI/CD automation. Focused on designing and delivering scalable and secure applications for enterprise environments.</p>
-        <Link
-          href="/"
-          class="bg-primary/70 text-primary-foreground hover:bg-primary group inline-flex h-9 items-center justify-center gap-2 px-4 py-2 text-sm font-medium whitespace-nowrap"
-        >
-          <Icon name="lucide:file-text" class="size-3.5" />
-          Resume
-        </Link>
+        <p class="mb-4">
+          Software Engineer with experience in integration development and cloud
+          solutions using Java, Spring, AWS, and Azure, with DevOps experience
+          in Terraform and CI/CD automation. Focused on designing and delivering
+          scalable and secure applications for enterprise environments.
+        </p>
+        <div class="flex flex-wrap items-center gap-y-2 text-sm">
+          <Link
+            href="/"
+            class="bg-primary/70 text-primary-foreground hover:bg-primary group inline-flex h-9 items-center justify-center gap-2 px-4 py-2 text-sm font-medium whitespace-nowrap"
+          >
+            <Icon name="lucide:file-text" class="size-3.5" />
+            Resume
+          </Link>
+          <span class="bg-border mr-2 ml-5 h-5 w-px" aria-hidden="true"></span>
+          <div class="flex items-center gap-1">
+            {
+              SOCIAL_LINKS.map((link) => (
+                <Link
+                  href={link.href}
+                  aria-label={link.label}
+                  title={link.label}
+                  class="text-muted-foreground hover:text-primary inline-flex size-9 items-center justify-center transition-colors"
+                  external
+                >
+                  <Icon name={link.icon} class="size-5" />
+                </Link>
+              ))
+            }
+          </div>
+        </div>
       </div>
 
       <hr class="border-border my-6" />
 
       <div class="prose">
         <p class="mt-0">
-          To learn more about the philosophy behind this template, check out the
-          following blog post: <Link
-            href="/blog/the-state-of-static-blogs"
-            underline>The State of Static Blogs in 2024</Link
-          >.
+          Hi, I'm Alex, a software engineer who enjoys building software and
+          solving problems.I enjoy building things to better understand how they
+          work, whether that's in software engineering or other areas of life.
         </p>
 
         <p>
-          astro-erudite is an opinionated, unstyled static blogging template
-          that prioritizes simplicity and performance, built with <Link
-            href="https://astro.build"
-            external
-            underline>Astro</Link
-          >, <Link href="https://tailwindcss.com" external underline
-            >Tailwind</Link
-          >, and <Link href="https://ui.shadcn.com" external underline
-            >shadcn/ui</Link
-          >. It provides a clean foundation for your content while being
-          extremely easy to customize.
+          Outside of engineering, I'm interested in math, and in evidence-based
+          personal finance, health, psychology, and neuroscience. I write mostly
+          as a way to organize my thoughts and document what I'm learning along
+          the way.
         </p>
       </div>
     </div>

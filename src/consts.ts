@@ -2,8 +2,7 @@ import type { IconMap, SocialLink, Site } from '@/types'
 
 export const SITE: Site = {
   title: 'Alex Kang',
-  description:
-    'personal blog / portfolio',
+  description: 'personal blog / portfolio',
   href: 'https://alexbkang.dev/blog',
   locale: 'en-US',
   featuredPostCount: 5,
