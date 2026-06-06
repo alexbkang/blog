@@ -2,40 +2,24 @@
 import BlogItem from '@/components/blog-item.astro'
 import Link from '@/components/link.astro'
 import PageHead from '@/components/page-head.astro'
-import { SITE } from '@/consts'
+import { SITE, SOCIAL_LINKS } from '@/consts'
 import Layout from '@/layouts/layout.astro'
 import { getRecentPosts } from '@/lib/data-utils'
 import { Icon } from 'astro-icon/components'
 
 const blog = await getRecentPosts(SITE.featuredPostCount)
 
-const socialLinks = [
-  {
-    href: 'https://github.com/alexkang',
-    label: 'GitHub',
-    icon: 'lucide:github',
-  },
-  {
-    href: 'https://www.linkedin.com/in/alexkang',
-    label: 'LinkedIn',
-    icon: 'lucide:linkedin',
-  },
-  {
-    href: 'mailto:alex@alexkang.com',
-    label: 'Email',
-    icon: 'lucide:mail',
-  },
-]
+const socialLinks = SOCIAL_LINKS
 ---
 
 <Layout class="max-w-3xl">
   <PageHead slot="head" title="Home" />
-  <section class="flex flex-col gap-y-8 py-8 sm:py-12">
+  <section class="flex flex-col gap-y-8 pb-8 sm:pb-12">
     <div class="space-y-3">
       <h1
         class="max-w-2xl text-4xl leading-tight font-semibold text-balance sm:text-5xl"
       >
-        Opinionated static blogging with a quiet surface and sharp edges.
+      Software Engineer building backend systems and production integrations.
       </h1>
     </div>
 
