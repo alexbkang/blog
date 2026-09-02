@@ -1,11 +1,11 @@
 ---
-import BlogItem from '@/components/blog-item.astro'
 import Breadcrumbs from '@/components/breadcrumbs.astro'
 import PageHead from '@/components/page-head.astro'
+import ProjectCard from '@/components/project-card.astro'
 import PaginationComponent from '@/components/ui/pagination'
 import { SITE } from '@/consts'
 import Layout from '@/layouts/layout.astro'
-import { getAllPosts } from '@/lib/data-utils'
+import { getAllProjects } from '@/lib/data-utils'
 import { Icon } from 'astro-icon/components'
 import type { PaginateFunction } from 'astro'
 
@@ -14,21 +14,21 @@ export async function getStaticPaths({
 }: {
   paginate: PaginateFunction
 }) {
-  const allPosts = await getAllPosts()
-  return paginate(allPosts, { pageSize: SITE.postsPerPage })
+  const allProjects = await getAllProjects()
+  return paginate(allProjects, { pageSize: SITE.projectsPerPage })
 }
 
 const { page } = Astro.props
 const tags = Array.from(
-  new Set(page.data.flatMap((post) => post.data.tags ?? [])),
+  new Set(page.data.flatMap((project) => project.data.tags)),
 ).sort((a, b) => a.localeCompare(b))
 ---
 
 <Layout class="max-w-3xl">
-  <PageHead slot="head" title="Blog" />
+  <PageHead slot="head" title="Projects" />
   <Breadcrumbs
     items={[
-      { label: 'Blog', href: '/blog', icon: 'lucide:library-big' },
+      { label: 'Projects', href: '/projects', icon: 'lucide:folder-kanban' },
       { label: `Page ${page.currentPage}`, icon: 'lucide:book-copy' },
     ]}
   />
@@ -58,21 +58,15 @@ const tags = Array.from(
       }
     </div>
 
-    <ul class="flex flex-col" data-filter-items>
-      {
-        page.data.map((post) => (
-          <li data-tags={post.data.tags?.join('|') ?? ''}>
-            <BlogItem entry={post} />
-          </li>
-        ))
-      }
+    <ul class="flex flex-col gap-2" data-filter-items>
+      {page.data.map((project) => <ProjectCard project={project} />)}
     </ul>
   </div>
 
   <PaginationComponent
     currentPage={page.currentPage}
     totalPages={page.lastPage}
-    baseUrl="/blog/"
+    baseUrl="/projects/"
     client:load
   />
 </Layout>

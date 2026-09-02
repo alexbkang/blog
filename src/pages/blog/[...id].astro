@@ -1,25 +1,15 @@
 ---
 import Breadcrumbs from '@/components/breadcrumbs.astro'
 import PostHead from '@/components/post-head.astro'
-import PostNavigation from '@/components/post-navigation.astro'
-import SubpostsHeader from '@/components/subposts-header.astro'
-import SubpostsSidebar from '@/components/subposts-sidebar.astro'
 import TOCHeader from '@/components/toc-header.astro'
 import TOCSidebar from '@/components/toc-sidebar.astro'
 import { badgeVariants } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import Layout from '@/layouts/layout.astro'
 import {
-  getAdjacentPosts,
-  getAllPostsAndSubposts,
-  getCombinedReadingTime,
-  getParentId,
-  getParentPost,
+  getAllPosts,
   getPostReadingTime,
-  getSubpostCount,
   getTOCSections,
-  hasSubposts,
-  isSubpost,
 } from '@/lib/data-utils'
 import { formatDate } from '@/lib/utils'
 import { Icon } from 'astro-icon/components'
@@ -27,7 +17,7 @@ import { Image } from 'astro:assets'
 import { render } from 'astro:content'
 
 export async function getStaticPaths() {
-  const posts = await getAllPostsAndSubposts()
+  const posts = await getAllPosts()
   return posts.map((post) => ({
     params: { id: post.id },
     props: post,
@@ -38,40 +28,16 @@ const post = Astro.props
 const currentPostId = Astro.params.id
 const { Content, headings } = await render(post)
 
-const isCurrentSubpost = isSubpost(currentPostId)
-const navigation = await getAdjacentPosts(currentPostId)
-const parentPost = isCurrentSubpost ? await getParentPost(currentPostId) : null
-
-const hasChildPosts = await hasSubposts(currentPostId)
-const subpostCount = !isCurrentSubpost
-  ? await getSubpostCount(currentPostId)
-  : 0
 const postReadingTime = await getPostReadingTime(currentPostId)
-const combinedReadingTime =
-  hasChildPosts && !isCurrentSubpost
-    ? await getCombinedReadingTime(currentPostId)
-    : null
-
 const tocSections = await getTOCSections(currentPostId)
 ---
 
 <Layout>
   <PostHead slot="head" post={post} />
   {
-    (hasChildPosts || isCurrentSubpost) && (
-      <SubpostsHeader
-        slot="subposts-navigation"
-        parentId={isCurrentSubpost ? getParentId(currentPostId) : currentPostId}
-      />
+    headings?.length > 0 && (
+      <TOCHeader slot="table-of-contents" headings={headings} />
     )
-  }
-  {
-    headings?.length > 0 &&
-      !(
-        isCurrentSubpost &&
-        headings.length === 1 &&
-        headings[0].text === post.data.title
-      ) && <TOCHeader slot="table-of-contents" headings={headings} />
   }
 
   <section
@@ -81,26 +47,11 @@ const tocSections = await getTOCSections(currentPostId)
       <Breadcrumbs
         items={[
           { href: '/blog', label: 'Blog', icon: 'lucide:library-big' },
-          ...(isCurrentSubpost && parentPost
-            ? [
-                {
-                  href: `/blog/${parentPost.id}`,
-                  label: parentPost.data.title,
-                  icon: 'lucide:book-open',
-                },
-                {
-                  href: `/blog/${currentPostId}`,
-                  label: post.data.title,
-                  icon: 'lucide:file-text',
-                },
-              ]
-            : [
-                {
-                  href: `/blog/${currentPostId}`,
-                  label: post.data.title,
-                  icon: 'lucide:book-open-text',
-                },
-              ]),
+          {
+            href: `/blog/${currentPostId}`,
+            label: post.data.title,
+            icon: 'lucide:book-open-text',
+          },
         ]}
       />
     </div>
@@ -112,7 +63,7 @@ const tocSections = await getTOCSections(currentPostId)
           alt={post.data.title}
           width={1200}
           height={630}
-          class="col-span-full mx-auto w-full max-w-5xl object-cover"
+          class="col-start-2 mx-auto w-full max-w-5xl object-cover"
         />
       )
     }
@@ -138,28 +89,8 @@ const tocSections = await getTOCSections(currentPostId)
           <div
             class="flex w-full items-center justify-center gap-2 py-2 sm:w-fit sm:px-2 sm:py-0 first:sm:pl-0 last:sm:pr-0"
           >
-            <span>
-              {postReadingTime}
-              {
-                combinedReadingTime &&
-                  combinedReadingTime !== postReadingTime && (
-                    <span class="text-muted-foreground">
-                      {' '}
-                      ({combinedReadingTime} total)
-                    </span>
-                  )
-              }
-            </span>
+            <span>{postReadingTime}</span>
           </div>
-
-          {
-            subpostCount > 0 && (
-              <div class="flex w-full items-center justify-center gap-1 py-2 sm:w-fit sm:px-2 sm:py-0 first:sm:pl-0 last:sm:pr-0">
-                <Icon name="lucide:file-text" class="size-3" />
-                {subpostCount} subpost{subpostCount === 1 ? '' : 's'}
-              </div>
-            )
-          }
         </div>
         <div class="flex flex-wrap justify-center gap-2">
           {
@@ -168,7 +99,7 @@ const tocSections = await getTOCSections(currentPostId)
               post.data.tags.map((tag) => (
                 <a
                   href={`/tags/${tag}`}
-                  class={badgeVariants({ variant: 'muted' })}
+                  class={badgeVariants({ variant: 'tag' })}
                 >
                   <Icon name="lucide:hash" class="size-3" />
                   {tag}
@@ -177,17 +108,35 @@ const tocSections = await getTOCSections(currentPostId)
           }
         </div>
       </div>
-
-      <PostNavigation
-        newerPost={navigation.newer}
-        olderPost={navigation.older}
-        parentPost={isCurrentSubpost ? navigation.parent : undefined}
-      />
     </section>
 
     {
       tocSections.length > 0 && (
-        <TOCSidebar sections={tocSections} currentPostId={currentPostId} />
+        <details class="group col-start-2 hidden w-full rounded-none border border-border/40 bg-muted/10 md:block xl:hidden">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-2 px-4 py-3 select-none">
+            <div class="flex items-center gap-2">
+              <Icon name="lucide:list" class="size-3.5 shrink-0 text-muted-foreground/80" />
+              <span class="text-sm font-medium">On this page</span>
+            </div>
+            <Icon name="lucide:chevron-down" class="size-3.5 text-muted-foreground/80 transition-transform duration-200 group-open:rotate-180" />
+          </summary>
+          <nav aria-label="Table of contents" class="px-4 pb-4">
+            <ul class="flex flex-col gap-0.5 border-t border-border/20 pt-3">
+              {tocSections.map((section) =>
+                section.headings.map((heading) => (
+                  <li class={heading.depth > 2 ? 'ml-4' : ''}>
+                    <a
+                      href={`#${heading.slug}`}
+                      class="block rounded-none px-3 py-1.5 leading-snug text-muted-foreground transition-colors duration-150 hover:text-foreground text-sm"
+                    >
+                      {heading.text}
+                    </a>
+                  </li>
+                ))
+              )}
+            </ul>
+          </nav>
+        </details>
       )
     }
 
@@ -196,21 +145,10 @@ const tocSections = await getTOCSections(currentPostId)
     </article>
 
     {
-      (hasChildPosts || isCurrentSubpost) && (
-        <SubpostsSidebar
-          parentId={
-            isCurrentSubpost ? getParentId(currentPostId) : currentPostId
-          }
-          className="w-64"
-        />
+      tocSections.length > 0 && (
+        <TOCSidebar sections={tocSections} currentPostId={currentPostId} />
       )
     }
-
-    <PostNavigation
-      newerPost={navigation.newer}
-      olderPost={navigation.older}
-      parentPost={isCurrentSubpost ? navigation.parent : undefined}
-    />
   </section>
 
   <Button
