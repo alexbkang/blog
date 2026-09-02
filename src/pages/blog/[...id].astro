@@ -6,11 +6,7 @@ import TOCSidebar from '@/components/toc-sidebar.astro'
 import { badgeVariants } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import Layout from '@/layouts/layout.astro'
-import {
-  getAllPosts,
-  getPostReadingTime,
-  getTOCSections,
-} from '@/lib/data-utils'
+import { getAllPosts, getTOCSections } from '@/lib/data-utils'
 import { formatDate } from '@/lib/utils'
 import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
@@ -28,7 +24,6 @@ const post = Astro.props
 const currentPostId = Astro.params.id
 const { Content, headings } = await render(post)
 
-const postReadingTime = await getPostReadingTime(currentPostId)
 const tocSections = await getTOCSections(currentPostId)
 ---
 
@@ -78,19 +73,9 @@ const tocSections = await getTOCSections(currentPostId)
         </h1>
 
         <div
-          class="text-muted-foreground divide-border mb-4 flex flex-col items-center justify-center divide-y text-xs sm:flex-row sm:flex-wrap sm:divide-x sm:divide-y-0 sm:text-sm"
+          class="text-muted-foreground mb-4 flex items-center justify-center text-xs sm:text-sm"
         >
-          <div
-            class="flex w-full items-center justify-center gap-2 py-2 sm:w-fit sm:px-2 sm:py-0 first:sm:pl-0 last:sm:pr-0"
-          >
-            <span>{formatDate(post.data.date)}</span>
-          </div>
-
-          <div
-            class="flex w-full items-center justify-center gap-2 py-2 sm:w-fit sm:px-2 sm:py-0 first:sm:pl-0 last:sm:pr-0"
-          >
-            <span>{postReadingTime}</span>
-          </div>
+          <span>{formatDate(post.data.date)}</span>
         </div>
         <div class="flex flex-wrap justify-center gap-2">
           {
