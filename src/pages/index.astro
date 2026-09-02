@@ -1,75 +1,78 @@
 ---
-import BlogItem from '@/components/blog-item.astro'
 import Link from '@/components/link.astro'
 import PageHead from '@/components/page-head.astro'
 import { SITE, SOCIAL_LINKS } from '@/consts'
 import Layout from '@/layouts/layout.astro'
-import { getRecentPosts } from '@/lib/data-utils'
 import { Icon } from 'astro-icon/components'
-
-const blog = await getRecentPosts(SITE.featuredPostCount)
-
-const socialLinks = SOCIAL_LINKS
 ---
 
 <Layout class="max-w-3xl">
-  <PageHead slot="head" title="Home" />
-  <section class="flex flex-col gap-y-8 pb-8 sm:pb-12">
-    <div class="space-y-3">
-      <h1
-        class="max-w-2xl text-4xl leading-tight font-semibold text-balance sm:text-5xl"
-      >
-        Software Engineer building backend systems and production integrations.
-      </h1>
-    </div>
+  <PageHead slot="head" title={SITE.title} />
 
-    <div class="flex flex-wrap items-center gap-y-2 text-sm">
-      <Link
-        href="/projects"
-        class="bg-primary/70 text-primary-foreground hover:bg-primary group inline-flex h-9 items-center justify-center gap-2 px-4 py-2 text-sm font-medium whitespace-nowrap"
+  <section>
+    <div class="min-w-full">
+      <div
+        class="mb-6 flex flex-col items-center gap-6 sm:flex-row sm:items-start"
       >
-        Projects
-      </Link>
-      <span class="bg-border mr-2 ml-5 h-5 w-px" aria-hidden="true"></span>
-      <div class="flex items-center gap-1">
-        {
-          socialLinks.map((link) => (
+        <img
+          src="/static/alex.jpg"
+          alt="Portrait of Alex Kang"
+          class="ring-border size-32 shrink-0 object-cover ring-2 sm:size-40"
+          width="800"
+          height="800"
+        />
+        <div class="min-w-0">
+          <p class="mb-4">
+            Software Engineer with experience in integration development and
+            cloud solutions using Java, Spring, AWS, and Azure, with DevOps
+            experience in Terraform and CI/CD automation. Focused on designing
+            and delivering scalable and secure applications for enterprise
+            environments.
+          </p>
+          <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
             <Link
-              href={link.href}
-              aria-label={link.label}
-              title={link.label}
-              class="text-muted-foreground hover:text-primary inline-flex size-9 items-center justify-center transition-colors"
-              external
+              href="/resume.pdf"
+              class="text-muted-foreground hover:text-primary inline-flex items-center gap-1.5 transition-colors"
             >
-              <Icon name={link.icon} class="size-5" />
+              <Icon name="lucide:file-text" class="size-4" />
+              View Resume
             </Link>
-          ))
-        }
+            <span class="bg-border h-5 w-px" aria-hidden="true"></span>
+            <div class="flex items-center gap-1">
+              {
+                SOCIAL_LINKS.map((link) => (
+                  <Link
+                    href={link.href}
+                    aria-label={link.label}
+                    title={link.label}
+                    class="text-muted-foreground hover:text-primary inline-flex size-9 items-center justify-center transition-colors"
+                    external
+                  >
+                    <Icon name={link.icon} class="size-5" />
+                  </Link>
+                ))
+              }
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
 
-  <section class="flex flex-col gap-y-4">
-    <h2 class="font-medium">Recent Posts</h2>
-    <ul class="flex flex-col">
-      {
-        blog.map((post) => (
-          <li>
-            <BlogItem entry={post} />
-          </li>
-        ))
-      }
-    </ul>
-    <div class="flex justify-end">
-      <Link
-        href="/blog"
-        class="text-muted-foreground hover:text-primary group text-sm"
-      >
-        All posts <span
-          class="ml-1.5 transition-transform group-hover:translate-x-1"
-          >&rarr;</span
-        >
-      </Link>
+      <hr class="border-border my-6" />
+
+      <div class="prose">
+        <p class="mt-0">
+          Hi, I'm Alex, a software engineer who enjoys building software and
+          solving problems.I enjoy building things to better understand how they
+          work, whether that's in software engineering or other areas of life.
+        </p>
+
+        <p>
+          Outside of engineering, I'm interested in math, and in evidence-based
+          personal finance, health, psychology, and neuroscience. I write mostly
+          as a way to organize my thoughts and document what I'm learning along
+          the way.
+        </p>
+      </div>
     </div>
   </section>
 </Layout>
